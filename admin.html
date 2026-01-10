@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | CloudCourt 360</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TOP NAVBAR -->
+    <header class="topbar">
+        <h2>CloudCourt 360 — Admin Panel</h2>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <div class="dashboard-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <ul>
+                <li class="active" onclick="showSection('dashboard', this)">Dashboard</li>
+                <li onclick="showSection('createUser', this)">Create User</li>
+                <li onclick="showSection('manageUsers', this)">Manage Users</li>
+                <li onclick="showSection('systemInfo', this)">System Info</li>
+                <li class="logout" onclick="logout()">Logout</li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="content">
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="content-section active">
+                <h3 class="section-title">Welcome, System Administrator</h3>
+                <p class="section-subtitle">System overview and quick insights</p>
+
+                <div class="cards">
+                    <div class="card">Total Users<br><strong id="totalUsers">0</strong></div>
+                    <div class="card">Judges<br><strong id="judgesCount">0</strong></div>
+                    <div class="card">Lawyers<br><strong id="lawyersCount">0</strong></div>
+                    <div class="card">Prison Officials<br><strong id="prisonCount">0</strong></div>
+                </div>
+            </section>
+
+            <!-- CREATE USER -->
+            <section id="createUser" class="content-section">
+                <h3>Create New User</h3>
+
+                <form class="user-form" onsubmit="createUser(event)">
+                    <input type="text" id="fullName" placeholder="Full Name" required>
+                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="email" id="email" placeholder="Email Address" required>
+
+                    <select id="role" required>
+                        <option value="">Select Role</option>
+                        <option>Judge</option>
+                        <option>Lawyer</option>
+                        <option>Prison Official</option>
+                    </select>
+
+                    <button type="submit">Create User</button>
+                </form>
+
+                <p class="info-text">
+                    ⚠️ A secure password setup link will be sent to the user's email.
+                </p>
+            </section>
+
+            <!-- MANAGE USERS -->
+            <section id="manageUsers" class="content-section">
+                <h3>Manage Users</h3>
+
+                <table id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamically filled by JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SYSTEM INFO -->
+            <section id="systemInfo" class="content-section">
+                <h3>System Information</h3>
+                <p><strong>Application:</strong> CloudCourt 360</p>
+                <p><strong>Version:</strong> 1.0.0</p>
+                <p><strong>Deployment:</strong> Cloud Hosted</p>
+                <p><strong>Security:</strong> Role-Based Access Control</p>
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+ <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CloudCourt 360</h3>
+                <p>Official digital justice management portal.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Portal</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">User Helpdesk</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: support@cloudcourt.gov</p>
+                <p>Phone: +237 680 000 000</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>System</h4>
+                <p>Version: 1.0.1</p>
+                <p>Last Update: Feb 2025</p>
+            </div>
+        </div>
+
+        <p class="footer-bottom">© 2025 CloudCourt 360 | Ministry of Justice | All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
+

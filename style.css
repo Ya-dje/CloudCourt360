@@ -13,7 +13,7 @@ body {
 
 /* ==== BACKGROUND IMAGE WITH BLUR ==== */
 .background-overlay {
-     background-image: url('Resources(images)/image1.jpg'); 
+     background-image: url('images/image1.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -105,7 +105,461 @@ body {
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     animation: slideUp 1.2s ease;
+}@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
+
+body {
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: #e5e7eb;
+    height: 100vh;
+}
+
+/* ================= TOP BAR ================= */
+.topbar {
+    height: 70px;
+    padding: 0 40px;
+    background: rgba(2, 6, 23, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+}
+
+.topbar h2 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.logout-btn {
+    background: #dc2626;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #b91c1c;
+}
+
+/* ================= LAYOUT ================= */
+.dashboard-container {
+    display: flex;
+    height: calc(100vh - 70px);
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 260px;
+    background: rgba(2, 6, 23, 0.95);
+    border-right: 1px solid #1e293b;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.sidebar li {
+    padding: 15px 30px;
+    margin: 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #94a3b8;
+}
+
+.sidebar li:hover {
+    background: #1e293b;
+    color: white;
+}
+
+.sidebar li.active {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    box-shadow: 0 10px 30px rgba(37,99,235,0.4);
+}
+
+.sidebar .logout {
+    margin-top: 40px;
+    color: #f87171;
+}
+
+/* ================= MAIN CONTENT ================= */
+.content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+/* Titles */
+.section-title {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.section-subtitle {
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+/* ================= DASHBOARD CARDS ================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: linear-gradient(145deg, #020617, #1e293b);
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    transition: 0.4s;
+}
+
+.card strong {
+    font-size: 28px;
+    display: block;
+    margin-top: 10px;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* ================= FORMS ================= */
+.user-form {
+    max-width: 420px;
+    margin-top: 30px;
+}
+
+.user-form input,
+.user-form select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #1e293b;
+    background: #020617;
+    color: white;
+    margin-bottom: 18px;
+}
+
+.user-form button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.user-form button:hover {
+    transform: translateY(-2px);
+}
+
+/* ================= TABLE ================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background: #020617;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 16px;
+    border-bottom: 1px solid #1e293b;
+}
+
+th {
+    background: #020617;
+    color: #94a3b8;
+    text-align: left;
+}
+
+/* ================= CONTENT SWITCH ================= */
+.content-section {
+    display: none;
+    animation: slideFade 0.4s ease;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: #e5e7eb;
+    height: 100vh;
+}
+
+/* ================= TOP BAR ================= */
+.topbar {
+    height: 70px;
+    padding: 0 40px;
+    background: rgba(2, 6, 23, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+}
+
+.topbar h2 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.logout-btn {
+    background: #dc2626;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #b91c1c;
+}
+
+/* ================= LAYOUT ================= */
+.dashboard-container {
+    display: flex;
+    height: calc(100vh - 70px);
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 260px;
+    background: rgba(2, 6, 23, 0.95);
+    border-right: 1px solid #1e293b;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.sidebar li {
+    padding: 15px 30px;
+    margin: 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #94a3b8;
+}
+
+.sidebar li:hover {
+    background: #1e293b;
+    color: white;
+}
+
+.sidebar li.active {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    box-shadow: 0 10px 30px rgba(37,99,235,0.4);
+}
+
+.sidebar .logout {
+    margin-top: 40px;
+    color: #f87171;
+}
+
+/* ================= MAIN CONTENT ================= */
+.content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+/* Titles */
+.section-title {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.section-subtitle {
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+/* ================= DASHBOARD CARDS ================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: linear-gradient(145deg, #020617, #1e293b);
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    transition: 0.4s;
+}
+
+.card strong {
+    font-size: 28px;
+    display: block;
+    margin-top: 10px;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* ================= FORMS ================= */
+.user-form {
+    max-width: 420px;
+    margin-top: 30px;
+}
+
+.user-form input,
+.user-form select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #1e293b;
+    background: #020617;
+    color: white;
+    margin-bottom: 18px;
+}
+
+.user-form button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.user-form button:hover {
+    transform: translateY(-2px);
+}
+
+/* ================= TABLE ================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background: #020617;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 16px;
+    border-bottom: 1px solid #1e293b;
+}
+
+th {
+    background: #020617;
+    color: #94a3b8;
+    text-align: left;
+}
+
+/* ================= CONTENT SWITCH ================= */
+.content-section {
+    display: none;
+    animation: slideFade 0.4s ease;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.action-cell {
+    display: flex;
+    gap: 10px;
+}
+
+/* Common icon button style */
+.icon-btn {
+    border: none;
+    padding: 8px 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Edit (Green) */
+.edit-btn {
+    background: #16a34a;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #15803d;
+    transform: scale(1.1);
+}
+
+/* Remove (Red) */
+.delete-btn {
+    background: #dc2626;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+    transform: scale(1.1);
+}
+
 
 .login-card h2 {
     text-align: center;
