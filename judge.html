@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Judge Dashboard | CloudCourt 360</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- TOP NAVBAR -->
+    <header class="topbar">
+        <h2>CloudCourt 360 — Judge Panel</h2>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </header>
+
+    <div class="dashboard-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <ul>
+                <li class="active" onclick="showSection('dashboard', this)">Dashboard</li>
+                <li onclick="showSection('uploadCase', this)">Upload Case File</li>
+                <li onclick="showSection('manageCases', this)">Manage Case Files</li>
+                <li class="logout" onclick="logout()">Logout</li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="content">
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="content-section active">
+                <h3 class="section-title">Welcome, Honorable Judge</h3>
+                <p class="section-subtitle">Overview of court case records</p>
+
+                <div class="cards">
+                    <div class="card">Total Cases<br><strong id="totalCases">0</strong></div>
+                    <div class="card">Active Cases<br><strong id="activeCases">0</strong></div>
+                </div>
+            </section>
+
+            <!-- UPLOAD CASE -->
+            <section id="uploadCase" class="content-section">
+                <h3>Upload Case File</h3>
+
+                <form class="user-form" onsubmit="uploadCase(event)">
+                    <input type="text" id="caseTitle" placeholder="Case Title" required>
+                    <input type="text" id="prisonerName" placeholder="Prisoner Name" required>
+                    <input type="text" id="caseId" placeholder="Case ID" required>
+                    <input type="date" id="courtDate" required>
+
+                    <input type="file" id="caseFile" required>
+
+                    <button type="submit">Upload Case</button>
+                </form>
+            </section>
+
+            <!-- MANAGE CASES -->
+            <section id="manageCases" class="content-section">
+                <h3>Manage Case Files</h3>
+
+                <table id="casesTable">
+                    <thead>
+                        <tr>
+                            <th>Case ID</th>
+                            <th>Title</th>
+                            <th>Prisoner</th>
+                            <th>Court Date</th>
+                            <th>File</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- EDIT MODAL -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3>Edit Case</h3>
+            <input type="date" id="editCourtDate">
+            <div class="modal-actions">
+                <button class="save-btn" onclick="saveEdit()">Save</button>
+                <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DELETE MODAL -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirm Delete</h3>
+            <p>Are you sure you want to delete this case?</p>
+            <div class="modal-actions">
+                <button class="delete-btn" onclick="confirmDelete()">Delete</button>
+                <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+     <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CloudCourt 360</h3>
+                <p>Official digital justice management portal.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Portal</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">User Helpdesk</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: support@cloudcourt.gov</p>
+                <p>Phone: +237 680 000 000</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>System</h4>
+                <p>Version: 1.0.1</p>
+                <p>Last Update: Feb 2025</p>
+            </div>
+        </div>
+
+        <p class="footer-bottom">© 2025 CloudCourt 360 | Ministry of Justice | All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
