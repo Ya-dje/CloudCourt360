@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CloudCourt 360 - Login Portal</title>
     <link rel="stylesheet" href="style.css" />
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/amazon-cognito-identity-js/6.3.3/amazon-cognito-identity.min.js"></script>
+
+
 </head>
 
 <body>
@@ -30,12 +35,12 @@
         <div class="hero-section">
             <h1 class="title">Digital Justice, Reimagined.</h1>
             <p class="subtitle">
-                A cloud-powered platform enabling secure access to prisoner records, legal documents 
+                A cloud-powered platform enabling secure access to prisoner records, legal documents
                 and court files — designed for judges, lawyers and prison administrators.
             </p>
 
             <div class="highlight-box">
-                ⚖️ Secure  💯 Reliable  '
+                ⚖️ Secure 💯 Reliable '
                 /.' ☁ Cloud Integrated
             </div>
         </div>
@@ -66,7 +71,7 @@
         </div>
 
     </div>
-
+    <script src="auth.js"></script>
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
