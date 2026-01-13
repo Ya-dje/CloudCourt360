@@ -5,73 +5,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CloudCourt 360 - Login Portal</title>
+
     <link rel="stylesheet" href="style.css" />
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/amazon-cognito-identity-js/6.3.3/amazon-cognito-identity.min.js"></script>
+
+    <!-- Cognito SDK -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1571.0.min.js"></script>
+    <script src="https://unpkg.com/amazon-cognito-identity-js@5.2.10/dist/amazon-cognito-identity.min.js"></script>
 
 
 </head>
 
 <body>
 
-    <!-- BACKGROUND OVERLAY -->
     <div class="background-overlay"></div>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">CloudCourt 360</div>
-        <ul class="nav-links">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Support</a></li>
-        </ul>
     </nav>
 
-    <!-- MAIN CONTENT -->
     <div class="main-container">
 
-        <!-- TEXT SECTION -->
         <div class="hero-section">
-            <h1 class="title">Digital Justice, Reimagined.</h1>
-            <p class="subtitle">
-                A cloud-powered platform enabling secure access to prisoner records, legal documents
-                and court files — designed for judges, lawyers and prison administrators.
-            </p>
-
-            <div class="highlight-box">
-                ⚖️ Secure 💯 Reliable '
-                /.' ☁ Cloud Integrated
-            </div>
+            <h1>Digital Justice, Reimagined.</h1>
+            <p>Secure access to court and prison records.</p>
         </div>
 
-        <!-- LOGIN FORM -->
         <div class="login-card">
             <h2>Login to Continue</h2>
-            <form>
+
+            <form id="loginForm">
                 <label>Username</label>
-                <input type="text" placeholder="Enter username" required>
+                <input type="text" id="username" required>
 
                 <label>Password</label>
-                <input type="password" placeholder="Enter password" required>
-
-                <label>Select Role</label>
-                <select required>
-                    <option placeholder="">---Choose Role---</option>
-                    <option value="lawyer">Lawyer</option>
-                    <option value="judge">Judge</option>
-                    <option value="prison-officer">Prison Official</option>
-                    <option value="admin">Administrator</option>
-                </select>
-
+                <input type="password" id="password" required>
+                <span class="toggle-password" onclick="togglePassword('password', this)">👁️</span>
                 <button type="submit">Login</button>
             </form>
-
-            <a href="#" class="forgot">Forgot Password?</a>
         </div>
-
     </div>
-    <script src="auth.js"></script>
+
+    <!-- LOAD AUTH SCRIPT LAST -->
+    <script src="AWS-cognito/auth.js"></script>
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
@@ -105,7 +80,6 @@
 
         <p class="footer-bottom">© 2025 CloudCourt 360 | Ministry of Justice | All Rights Reserved.</p>
     </footer>
-
 </body>
 
 </html>
