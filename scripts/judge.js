@@ -1,3 +1,4 @@
+const API_ENDPOINT = https:"//rvvzhqh500.execute-api.us-east-1.amazonaws.com/prod"
 
 // =======================
 // UPLOAD CASE (REAL DEMO FILE)
