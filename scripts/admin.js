@@ -41,7 +41,7 @@ function createUser(event) {
     const email = document.getElementById("email").value;
     const role = document.getElementById("role").value;
 
-    fetch("http://127.0.0.1:5000/admin/create-user", {
+    fetch("http://44.200.31.244:5000/admin/create-user", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -53,37 +53,37 @@ function createUser(event) {
             role
         })
     })
-    .then(res => res.json())
-    .then(data => {
-        if (data.message) {
+        .then(res => res.json())
+        .then(data => {
+            if (data.message) {
 
-            users.push({
-                id: Date.now(),
-                fullName,
-                username,
-                email,
-                role,
-                status: "Pending Activation"
-            });
+                users.push({
+                    id: Date.now(),
+                    fullName,
+                    username,
+                    email,
+                    role,
+                    status: "Pending Activation"
+                });
 
-            renderUsers();
-            updateDashboardStats();
+                renderUsers();
+                updateDashboardStats();
 
-            alert(
-                "User created successfully.\n\n" +
-                "A password setup email has been sent to:\n" + email
-            );
+                alert(
+                    "User created successfully.\n\n" +
+                    "A password setup email has been sent to:\n" + email
+                );
 
-            event.target.reset();
+                event.target.reset();
 
-        } else {
-            alert(data.error || "User creation failed");
-        }
-    })
-    .catch(err => {
-        console.error(err);
-        alert("Failed to connect to backend.");
-    });
+            } else {
+                alert(data.error || "User creation failed");
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Failed to connect to backend.");
+        });
 }
 
 // =======================
@@ -103,10 +103,9 @@ function renderUsers() {
             <td>${formatRole(user.role)}</td>
             <td>${user.status}</td>
             <td class="action-cell">
-                <button class="icon-btn edit-btn"
-                    onclick="editUser(${user.id})">✏️</button>
-                <button class="icon-btn delete-btn"
-                    onclick="removeUser(${user.id})">🗑️</button>
+                <button class="icon-btn edit-btn">Edit</button>
+<button class="icon-btn delete-btn">Remove</button>
+
             </td>
         `;
 
@@ -122,7 +121,7 @@ function editUser(userId) {
     if (!user) return;
 
     const newRole = prompt(
-        "Edit role (Judges, Lawyers, PrisonOfficials, Admins):",
+        "Edit role (Judges, Lawyer, PrisonOfficials, Admins):",
         user.role
     );
 

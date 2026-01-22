@@ -46,7 +46,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
                 window.location.href = "admin.html";
             } else if (groups.includes("Judges")) {
                 window.location.href = "judge.html";
-            } else if (groups.includes("Lawyers")) {
+            } else if (groups.includes("Lawyer")) {
                 window.location.href = "lawyer.html";
             } else if (groups.includes("PrisonOfficials")) {
                 window.location.href = "prison.html";

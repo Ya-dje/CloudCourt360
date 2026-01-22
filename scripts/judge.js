@@ -2,7 +2,6 @@
 // =======================
 // UPLOAD CASE (REAL DEMO FILE)
 // =======================
-const API_ENDPOINT = "https://rvvzhqh500.execute-api.us-east-1.amazonaws.com/prod";
 let cases = [];
 let selectedCaseId = null;
 
@@ -161,7 +160,25 @@ function confirmDelete() {
     updateStats();
     closeModal();
 }
+async function uploadRecord() {
+    const prisonerData = {
+        CaseID: document.getElementById('caseIdInput').value, // Matches CaseID key
+        name: document.getElementById('nameInput').value,
+        title: document.getElementById('titleInput').value,
+        desc: document.getElementById('descInput').value,
+        court_date: document.getElementById('dateInput').value,
+        file_url: document.getElementById('fileUrlInput').value
+    };
 
+    const response = await fetch("https://rvvzhqh500.execute-api.us-east-1.amazonaws.com/prod/judge", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(prisonerData)
+    });
+
+    const result = await response.json();
+    alert(result.message);
+}
 // =======================
 // CLOSE MODALS
 // =======================

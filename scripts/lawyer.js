@@ -16,7 +16,7 @@ function showSection(sectionId, element) {
     );
     element.classList.add("active");
 }
-const API_ENDPOINT = "https://rvvzhqh500.execute-api.us-east-1.amazonaws.com/prod";
+const API_ENDPOINT = "https://rvvzhqh500.execute-api.us-east-1.amazonaws.com/prod/lawyer";
 
 async function runSearch() {
     const query = document.getElementById('caseSearch').value.trim();
@@ -53,3 +53,11 @@ async function runSearch() {
         output.innerHTML = `<div class="glass-card" style="text-align:center; color: red;">${error.message}</div>`;
     }
 }
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("searchInput")
+        .addEventListener("keypress", e => {
+            if (e.key === "Enter") {
+                runLawyerSearch();
+            }
+        });
+});

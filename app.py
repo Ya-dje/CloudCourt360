@@ -15,7 +15,13 @@ APP_CLIENT_ID = "3n3i67rdufiaumjokuc7812ll7"
 COGNITO_ISSUER = f"https://cognito-idp.{COGNITO_REGION}.amazonaws.com/{USER_POOL_ID}"
 JWKS_URL = f"{COGNITO_ISSUER}/.well-known/jwks.json"
 
-jwks = requests.get(JWKS_URL).json()
+def load_jwks():
+    response = requests.get(JWKS_URL, timeout=5)
+    response.raise_for_status()
+    return response.json()
+
+jwks = load_jwks()
+
 
 # ===== COGNITO CLIENT =====
 cognito = boto3.client(
@@ -40,8 +46,9 @@ def verify_token(auth_header):
             algorithms=["RS256"]
         )
         return payload
-    except Exception:
-        return None
+    except jwt.JWTError:
+       return None
+
 
 # ===== HEALTH CHECK =====
 @app.route("/", methods=["GET"])
@@ -99,4 +106,4 @@ def create_user():
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="44.200.31.244", port=5000, debug=False)
