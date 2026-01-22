@@ -4,50 +4,84 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CloudCourt 360 - Login Portal</title>
+    <title>CloudCourt 360 | Secure Judicial Access</title>
 
     <link rel="stylesheet" href="style.css" />
 
     <!-- Cognito SDK -->
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1571.0.min.js"></script>
     <script src="https://unpkg.com/amazon-cognito-identity-js@5.2.10/dist/amazon-cognito-identity.min.js"></script>
-
-
 </head>
 
 <body>
 
+    <!-- BACKGROUND -->
     <div class="background-overlay"></div>
 
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">CloudCourt 360</div>
+        <div class="nav-links subtle-text">
+            Secure Judicial Platform
+        </div>
     </nav>
 
+    <!-- MAIN -->
     <div class="main-container">
 
+        <!-- HERO -->
         <div class="hero-section">
-            <h1>Digital Justice, Reimagined.</h1>
-            <p>Secure access to court and prison records.</p>
+            <h1 class="title">Digital Justice,<br>Reimagined.</h1>
+
+            <p class="subtitle">
+                A centralized, cloud-powered platform enabling
+                <strong>judges</strong>, <strong>lawyers</strong> and
+                <strong>prison officials</strong> to securely access court
+                and inmate records in real time.
+            </p>
+
+            <div class="highlight-box">
+                🔒 Government-grade Security &nbsp; | &nbsp; ☁ Cloud-Native &nbsp; | &nbsp; ⚖️ Role-Based Access
+            </div>
+
+            <div class="trust-strip">
+                Trusted by Judicial Institutions • Encrypted End-to-End • Audited Access
+            </div>
         </div>
 
+        <!-- LOGIN -->
         <div class="login-card">
-            <h2>Login to Continue</h2>
+            <h2>Secure Login</h2>
+
+            <p class="login-note">
+                Authorized personnel only. Please sign in using your
+                official credentials.
+            </p>
 
             <form id="loginForm">
-                <label>Username</label>
-                <input type="text" id="username" required>
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="e.g. j.doe" required>
 
-                <label>Password</label>
-                <input type="password" id="password" required>
-                <span class="toggle-password" onclick="togglePassword('password', this)">👁️</span>
-                <button type="submit">Login</button>
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                
+                </div>
+
+                <button type="submit">Sign In Securely</button>
             </form>
+
+            <p class="login-footer-text">
+                Access is logged and monitored for compliance.
+            </p>
         </div>
+
     </div>
 
-    <!-- LOAD AUTH SCRIPT LAST -->
+    <!-- AUTH -->
     <script src="AWS-cognito/auth.js"></script>
-    <!-- FOOTER -->
+
+    <!-- FOOTER (UNCHANGED) -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -78,8 +112,10 @@
             </div>
         </div>
 
-        <p class="footer-bottom">© 2025 CloudCourt 360 | Ministry of Justice | All Rights Reserved.</p>
+        <p class="footer-bottom">
+            © 2025 CloudCourt 360 | Ministry of Justice | All Rights Reserved.
+        </p>
     </footer>
-</body>
 
+</body>
 </html>

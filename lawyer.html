@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lawyer Dashboard | CloudCourt 360</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TOP NAVBAR -->
+    <header class="topbar">
+        <h2>CloudCourt 360 — Lawyer Panel</h2>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </header>
+
+    <div class="dashboard-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <ul>
+                <li class="active" onclick="showSection('dashboard', this)">Dashboard</li>
+                <li onclick="showSection('caseLibrary', this)">Case Files</li>
+                <li class="logout" onclick="logout()">Logout</li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="content">
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="content-section active">
+                <h3 class="section-title">Welcome, Counsel</h3>
+                <p class="section-subtitle">
+                    View and retrieve court case files uploaded by judges.
+                </p>
+
+                <div class="cards">
+                    <div class="card">
+                        Total Available Cases
+                        <strong id="totalCases">0</strong>
+                    </div>
+                    <div class="card">
+                        Accessible Files
+                        <strong id="accessibleFiles">0</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CASE FILE LIBRARY -->
+            <section id="caseLibrary" class="content-section">
+                <h3 class="section-title">Case File Library</h3>
+                <p class="section-subtitle">
+                    Search and download official court documents (read-only).
+                </p>
+                
+                <!-- SEARCH BOX -->
+                <div class="case-search">
+                    <div class="case-search-box">
+                        <input type="text" id="searchInput" placeholder="Search by Case ID, Title, or Prisoner Name">
+                        <button onclick="filterCases()">Search</button>
+                    </div>
+                </div>
+
+
+                <!-- CASE TABLE -->
+                <table id="casesTable">
+                    <thead>
+                        <tr>
+                            <th>Case ID</th>
+                            <th>Title</th>
+                            <th>Prisoner</th>
+                            <th>Court Date</th>
+                            <th>File</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filled dynamically -->
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-bottom">
+            © 2025 CloudCourt 360 | Ministry of Justice | Lawyer Access Portal
+        </p>
+    </footer>
+
+    <script src="scripts/lawyer.js"></script>
+</body>
+
+</html>

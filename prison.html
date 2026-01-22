@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prison Official Dashboard | CloudCourt 360</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TOP NAVBAR -->
+    <header class="topbar">
+        <h2>CloudCourt 360 — Prison Official Panel</h2>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </header>
+
+    <div class="dashboard-container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <ul>
+                <li class="active" onclick="showSection('dashboard', this)">Dashboard</li>
+                <li onclick="showSection('caseLibrary', this)">Case Files</li>
+                <li class="logout" onclick="logout()">Logout</li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="content">
+
+            <!-- DASHBOARD -->
+            <section id="dashboard" class="content-section active">
+                <h3 class="section-title">Welcome, Prison Official</h3>
+                <p class="section-subtitle">
+                    Access court-approved prisoner case files uploaded by judges.
+                </p>
+
+                <div class="cards">
+                    <div class="card">
+                        Total Assigned Cases
+                        <strong id="totalCases">0</strong>
+                    </div>
+                    <div class="card">
+                        Accessible Documents
+                        <strong id="accessibleFiles">0</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CASE FILE LIBRARY -->
+            <section id="caseLibrary" class="content-section">
+                <h3 class="section-title">Prisoner Case File Library</h3>
+                <p class="section-subtitle">
+                    Search, view, and download official court documents (read-only).
+                </p>
+
+                <!-- SEARCH BAR -->
+                <div class="case-search">
+                    <div class="case-search-box">
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search by Case ID, Prisoner Name, or Case Title"
+                        >
+                        <button onclick="filterCases()">Search</button>
+                    </div>
+                </div>
+
+                <!-- CASE TABLE -->
+                <table id="casesTable">
+                    <thead>
+                        <tr>
+                            <th>Case ID</th>
+                            <th>Title</th>
+                            <th>Prisoner</th>
+                            <th>Court Date</th>
+                            <th>File</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filled dynamically -->
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-bottom">
+            © 2025 CloudCourt 360 | Ministry of Justice | Prison Official Access Portal
+        </p>
+    </footer>
+
+    <script src="scripts/prison.js"></script>
+</body>
+</html>
