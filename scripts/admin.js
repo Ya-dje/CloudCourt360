@@ -152,7 +152,7 @@ function updateDashboardStats() {
     document.getElementById("judgesCount").textContent =
         users.filter(u => u.role === "Judges").length;
     document.getElementById("lawyersCount").textContent =
-        users.filter(u => u.role === "Lawyers").length;
+        users.filter(u => u.role === "Lawyer").length;
     document.getElementById("prisonCount").textContent =
         users.filter(u => u.role === "PrisonOfficials").length;
 }
@@ -163,7 +163,7 @@ function updateDashboardStats() {
 function formatRole(role) {
     switch (role) {
         case "Judges": return "Judge";
-        case "Lawyers": return "Lawyer";
+        case "Lawyer": return "Lawyer";
         case "PrisonOfficials": return "Prison Official";
         case "Admins": return "Admin";
         default: return role;
